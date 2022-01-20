@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Analog Clock</title>
+        <link rel="stylesheet" href="analogCss.css">
+       
+    </head>
+    <body>
+        <div class="clock">
+            <div class="hour">
+                <div class="hr" id="hr"></div>
+            </div>
+            <div class="minutes">
+                <div class="min" id="min"></div>
+            </div>
+            <div class="sec">
+                <div class="sc" id="sc"></div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            var deg=6;
+            var hr=document.querySelector("#hr");
+var min=document.querySelector("#min");
+var sc=document.querySelector("#sc");
+   setInterval(()=>{
+    let day=new Date();
+    let h=day.getHours();
+    if(h>12)
+    h=h-12;
+    h=h*30; 
+    let m=day.getMinutes()*6;
+    var hh=h+m/12;
+    let s=day.getSeconds()*6;
+    hr.style.transform='rotateZ('+hh+'deg)';
+    min.style.transform='rotateZ('+m+'deg)';
+    sc.style.transform='rotateZ('+s+'deg)';
+})
+        </script>
+    </body>
+    
+</html>
